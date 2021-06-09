@@ -8,15 +8,15 @@
 
     // Verificação de campo obrigatórios do formulário
     if(empty($requestData['NOME'])){
-        // Caso a variável venha vazia eu gero um retorno de erro do mesmo
+// Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
             "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
         );
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
-        $IDEIXO = isset($requestData['IDEIXO']) ? $requestData['IDEIXO'] : '';
-        $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
+        $IDEIXO = isset($requestData['IDEIXO']) ? $requestData['IDEIXO'] : "";
+        $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : "";
 
         // Verifica se é para cadastra um nvo registro
         if($operacao == 'insert'){
@@ -24,7 +24,7 @@
             try{
                 $stmt = $pdo->prepare('INSERT INTO EIXO (NOME) VALUES (:nome)');
                 $stmt->execute(array(
-                    ':nome' => utf8_decode($requestData['NOME'])
+                    ':nome' => $requestData['NOME']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -39,19 +39,19 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE EIXO SET NOME = :nome WHERE IDEIXO = :id');
+                $stmt = $pdo->prepare("UPDATE EIXO SET NOME=:nome WHERE IDEIXO=:id");
                 $stmt->execute(array(
                     ':id' => $IDEIXO,
-                    ':nome' => utf8_decode($requestData['NOME'])
+                    ':nome' => $requestData['NOME']
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Eixo tecnológico atualizado com sucesso.'
+                    "mensagem" => 'Eixo tecnológico atualizado com sucesso!'
                 );
-            } catch (PDOException $e) {
+            } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o alteração do eixo.'
+                    "mensagem" => 'Não foi possível efetuar a alteração do eixo.'
                 );
             }
         }

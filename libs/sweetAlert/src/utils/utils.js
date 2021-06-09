@@ -5,13 +5,13 @@ export const consolePrefix = 'SweetAlert2:'
  * @param arr
  */
 export const uniqueArray = (arr) => {
-  const result = []
-  for (let i = 0; i < arr.length; i++) {
-    if (result.indexOf(arr[i]) === -1) {
-      result.push(arr[i])
+    const result = []
+    for (let i = 0; i < arr.length; i++) {
+        if (result.indexOf(arr[i]) === -1) {
+            result.push(arr[i])
+        }
     }
-  }
-  return result
+    return result
 }
 
 /**
@@ -37,7 +37,7 @@ export const toArray = (nodeList) => Array.prototype.slice.call(nodeList)
  * @param message
  */
 export const warn = (message) => {
-  console.warn(`${consolePrefix} ${typeof message === 'object' ? message.join(' ') : message}`)
+    console.warn(`${consolePrefix} ${typeof message === 'object' ? message.join(' ') : message}`)
 }
 
 /**
@@ -45,7 +45,7 @@ export const warn = (message) => {
  * @param message
  */
 export const error = (message) => {
-  console.error(`${consolePrefix} ${message}`)
+    console.error(`${consolePrefix} ${message}`)
 }
 
 /**
@@ -60,17 +60,17 @@ const previousWarnOnceMessages = []
  * @param message
  */
 export const warnOnce = (message) => {
-  if (!previousWarnOnceMessages.includes(message)) {
-    previousWarnOnceMessages.push(message)
-    warn(message)
-  }
+    if (!previousWarnOnceMessages.includes(message)) {
+        previousWarnOnceMessages.push(message)
+        warn(message)
+    }
 }
 
 /**
  * Show a one-time console warning about deprecated params/methods
  */
 export const warnAboutDeprecation = (deprecatedParam, useInstead) => {
-  warnOnce(`"${deprecatedParam}" is deprecated and will be removed in the next major release. Please use "${useInstead}" instead.`)
+    warnOnce(`"${deprecatedParam}" is deprecated and will be removed in the next major release. Please use "${useInstead}" instead.`)
 }
 
 /**

@@ -6,7 +6,7 @@ import globalState from '../globalState.js'
  * Otherwise, returns undefined.
  */
 export const getTimerLeft = () => {
-  return globalState.timeout && globalState.timeout.getTimerLeft()
+    return globalState.timeout && globalState.timeout.getTimerLeft()
 }
 
 /**
@@ -14,10 +14,10 @@ export const getTimerLeft = () => {
  * If `timer` parameter isn't set, returns undefined.
  */
 export const stopTimer = () => {
-  if (globalState.timeout) {
-    stopTimerProgressBar()
-    return globalState.timeout.stop()
-  }
+    if (globalState.timeout) {
+        stopTimerProgressBar()
+        return globalState.timeout.stop()
+    }
 }
 
 /**
@@ -25,11 +25,11 @@ export const stopTimer = () => {
  * If `timer` parameter isn't set, returns undefined.
  */
 export const resumeTimer = () => {
-  if (globalState.timeout) {
-    const remaining = globalState.timeout.start()
-    animateTimerProgressBar(remaining)
-    return remaining
-  }
+    if (globalState.timeout) {
+        const remaining = globalState.timeout.start()
+        animateTimerProgressBar(remaining)
+        return remaining
+    }
 }
 
 /**
@@ -37,8 +37,8 @@ export const resumeTimer = () => {
  * If `timer` parameter isn't set, returns undefined.
  */
 export const toggleTimer = () => {
-  const timer = globalState.timeout
-  return timer && (timer.running ? stopTimer() : resumeTimer())
+    const timer = globalState.timeout
+    return timer && (timer.running ? stopTimer() : resumeTimer())
 }
 
 /**
@@ -46,11 +46,11 @@ export const toggleTimer = () => {
  * If `timer` parameter isn't set, returns undefined.
  */
 export const increaseTimer = (n) => {
-  if (globalState.timeout) {
-    const remaining = globalState.timeout.increase(n)
-    animateTimerProgressBar(remaining, true)
-    return remaining
-  }
+    if (globalState.timeout) {
+        const remaining = globalState.timeout.increase(n)
+        animateTimerProgressBar(remaining, true)
+        return remaining
+    }
 }
 
 /**
@@ -59,5 +59,5 @@ export const increaseTimer = (n) => {
  * If `timer` parameter isn't set, returns undefined
  */
 export const isTimerRunning = () => {
-  return globalState.timeout && globalState.timeout.isRunning()
+    return globalState.timeout && globalState.timeout.isRunning()
 }

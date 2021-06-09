@@ -5,12 +5,12 @@ import { isVisible } from './domUtils.js'
 export const getContainer = () => document.body.querySelector(`.${swalClasses.container}`)
 
 export const elementBySelector = (selectorString) => {
-  const container = getContainer()
-  return container ? container.querySelector(selectorString) : null
+    const container = getContainer()
+    return container ? container.querySelector(selectorString) : null
 }
 
 const elementByClass = (className) => {
-  return elementBySelector(`.${className}`)
+    return elementBySelector(`.${className}`)
 }
 
 export const getPopup = () => elementByClass(swalClasses.popup)
@@ -68,36 +68,36 @@ const focusable = `
 `
 
 export const getFocusableElements = () => {
-  const focusableElementsWithTabindex = toArray(
-    getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')
-  )
-  // sort according to tabindex
-    .sort((a, b) => {
-      a = parseInt(a.getAttribute('tabindex'))
-      b = parseInt(b.getAttribute('tabindex'))
-      if (a > b) {
-        return 1
-      } else if (a < b) {
-        return -1
-      }
-      return 0
-    })
+    const focusableElementsWithTabindex = toArray(
+            getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')
+        )
+        // sort according to tabindex
+        .sort((a, b) => {
+            a = parseInt(a.getAttribute('tabindex'))
+            b = parseInt(b.getAttribute('tabindex'))
+            if (a > b) {
+                return 1
+            } else if (a < b) {
+                return -1
+            }
+            return 0
+        })
 
-  const otherFocusableElements = toArray(
-    getPopup().querySelectorAll(focusable)
-  ).filter(el => el.getAttribute('tabindex') !== '-1')
+    const otherFocusableElements = toArray(
+        getPopup().querySelectorAll(focusable)
+    ).filter(el => el.getAttribute('tabindex') !== '-1')
 
-  return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(el => isVisible(el))
+    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(el => isVisible(el))
 }
 
 export const isModal = () => {
-  return !isToast() && !document.body.classList.contains(swalClasses['no-backdrop'])
+    return !isToast() && !document.body.classList.contains(swalClasses['no-backdrop'])
 }
 
 export const isToast = () => {
-  return document.body.classList.contains(swalClasses['toast-shown'])
+    return document.body.classList.contains(swalClasses['toast-shown'])
 }
 
 export const isLoading = () => {
-  return getPopup().hasAttribute('data-loading')
+    return getPopup().hasAttribute('data-loading')
 }

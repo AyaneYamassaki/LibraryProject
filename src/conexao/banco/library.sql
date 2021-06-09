@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema 3848728_3dslibary
+-- Schema id16995102_library3dsetecayanebd
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema 3848728_3dslibary
+-- Schema id16995102_library3dsetecayanebd
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `3848728_3dslibary` DEFAULT CHARACTER SET utf8 ;
-USE `3848728_3dslibary` ;
+CREATE SCHEMA IF NOT EXISTS `id16995102_library3dsetecayanebd` DEFAULT CHARACTER SET utf8 ;
+USE `id16995102_library3dsetecayanebd` ;
 
 -- -----------------------------------------------------
--- Table `3848728_3dslibary`.`TIPO_USUARIO`
+-- Table `id16995102_library3dsetecayanebd`.`TIPO_USUARIO`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`TIPO_USUARIO` (
+CREATE TABLE IF NOT EXISTS `id16995102_library3dsetecayanebd`.`TIPO_USUARIO` (
   `IDTIPO_USUARIO` INT NOT NULL AUTO_INCREMENT,
   `DESCRICAO` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`IDTIPO_USUARIO`))
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `3848728_3dslibary`.`EIXO`
+-- Table `id16995102_library3dsetecayanebd`.`EIXO`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`EIXO` (
+CREATE TABLE IF NOT EXISTS `id16995102_library3dsetecayanebd`.`EIXO` (
   `IDEIXO` INT NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`IDEIXO`))
@@ -38,9 +38,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `3848728_3dslibary`.`CURSO`
+-- Table `id16995102_library3dsetecayanebd`.`CURSO`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`CURSO` (
+CREATE TABLE IF NOT EXISTS `id16995102_library3dsetecayanebd`.`CURSO` (
   `IDCURSO` INT NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(100) NOT NULL,
   `EIXO_IDEIXO` INT NOT NULL,
@@ -48,16 +48,16 @@ CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`CURSO` (
   INDEX `fk_CURSO_EIXO1_idx` (`EIXO_IDEIXO` ASC),
   CONSTRAINT `fk_CURSO_EIXO1`
     FOREIGN KEY (`EIXO_IDEIXO`)
-    REFERENCES `3848728_3dslibary`.`EIXO` (`IDEIXO`)
+    REFERENCES `id16995102_library3dsetecayanebd`.`EIXO` (`IDEIXO`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `3848728_3dslibary`.`USUARIO`
+-- Table `id16995102_library3dsetecayanebd`.`USUARIO`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`USUARIO` (
+CREATE TABLE IF NOT EXISTS `id16995102_library3dsetecayanebd`.`USUARIO` (
   `IDUSUARIO` INT NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(150) NOT NULL,
   `EMAIL` VARCHAR(255) NOT NULL,
@@ -69,21 +69,21 @@ CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`USUARIO` (
   INDEX `fk_USUARIO_CURSO1_idx` (`CURSO_IDCURSO` ASC),
   CONSTRAINT `fk_USUARIO_TIPO_USUARIO`
     FOREIGN KEY (`TIPO_USUARIO_IDTIPO_USUARIO`)
-    REFERENCES `3848728_3dslibary`.`TIPO_USUARIO` (`IDTIPO_USUARIO`)
+    REFERENCES `id16995102_library3dsetecayanebd`.`TIPO_USUARIO` (`IDTIPO_USUARIO`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_USUARIO_CURSO1`
     FOREIGN KEY (`CURSO_IDCURSO`)
-    REFERENCES `3848728_3dslibary`.`CURSO` (`IDCURSO`)
+    REFERENCES `id16995102_library3dsetecayanebd`.`CURSO` (`IDCURSO`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `3848728_3dslibary`.`TRABALHO`
+-- Table `id16995102_library3dsetecayanebd`.`TRABALHO`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`TRABALHO` (
+CREATE TABLE IF NOT EXISTS `id16995102_library3dsetecayanebd`.`TRABALHO` (
   `IDTRABALHO` INT NOT NULL AUTO_INCREMENT,
   `TITULO` VARCHAR(150) NOT NULL,
   `ANO` INT NOT NULL,
@@ -97,9 +97,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `3848728_3dslibary`.`AUTOR`
+-- Table `id16995102_library3dsetecayanebd`.`AUTOR`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`AUTOR` (
+CREATE TABLE IF NOT EXISTS `id16995102_library3dsetecayanebd`.`AUTOR` (
   `USUARIO_IDUSUARIO` INT NOT NULL,
   `TRABALHO_IDTRABALHO` INT NOT NULL,
   PRIMARY KEY (`USUARIO_IDUSUARIO`, `TRABALHO_IDTRABALHO`),
@@ -107,21 +107,21 @@ CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`AUTOR` (
   INDEX `fk_USUARIO_has_TRABALHO_USUARIO1_idx` (`USUARIO_IDUSUARIO` ASC),
   CONSTRAINT `fk_USUARIO_has_TRABALHO_USUARIO1`
     FOREIGN KEY (`USUARIO_IDUSUARIO`)
-    REFERENCES `3848728_3dslibary`.`USUARIO` (`IDUSUARIO`)
+    REFERENCES `id16995102_library3dsetecayanebd`.`USUARIO` (`IDUSUARIO`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_USUARIO_has_TRABALHO_TRABALHO1`
     FOREIGN KEY (`TRABALHO_IDTRABALHO`)
-    REFERENCES `3848728_3dslibary`.`TRABALHO` (`IDTRABALHO`)
+    REFERENCES `id16995102_library3dsetecayanebd`.`TRABALHO` (`IDTRABALHO`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `3848728_3dslibary`.`HISTORICO`
+-- Table `id16995102_library3dsetecayanebd`.`HISTORICO`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`HISTORICO` (
+CREATE TABLE IF NOT EXISTS `id16995102_library3dsetecayanebd`.`HISTORICO` (
   `IDHISTORICO` INT NOT NULL AUTO_INCREMENT,
   `DATA` DATE NOT NULL,
   `HORA` TIME NOT NULL,
@@ -132,12 +132,12 @@ CREATE TABLE IF NOT EXISTS `3848728_3dslibary`.`HISTORICO` (
   INDEX `fk_HISTORICO_TRABALHO1_idx` (`TRABALHO_IDTRABALHO` ASC),
   CONSTRAINT `fk_HISTORICO_USUARIO1`
     FOREIGN KEY (`USUARIO_IDUSUARIO`)
-    REFERENCES `3848728_3dslibary`.`USUARIO` (`IDUSUARIO`)
+    REFERENCES `id16995102_library3dsetecayanebd`.`USUARIO` (`IDUSUARIO`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_HISTORICO_TRABALHO1`
     FOREIGN KEY (`TRABALHO_IDTRABALHO`)
-    REFERENCES `3848728_3dslibary`.`TRABALHO` (`IDTRABALHO`)
+    REFERENCES `id16995102_library3dsetecayanebd`.`TRABALHO` (`IDTRABALHO`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

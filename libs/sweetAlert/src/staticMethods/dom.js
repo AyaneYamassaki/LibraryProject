@@ -2,33 +2,34 @@ import * as dom from '../utils/dom/index.js'
 import * as domUtils from '../utils/dom/domUtils.js'
 
 export {
-  getContainer,
-  getPopup,
-  getTitle,
-  getContent,
-  getHtmlContainer,
-  getImage,
-  getIcon,
-  getInputLabel,
-  getCloseButton,
-  getActions,
-  getConfirmButton,
-  getDenyButton,
-  getCancelButton,
-  getLoader,
-  getHeader,
-  getFooter,
-  getTimerProgressBar,
-  getFocusableElements,
-  getValidationMessage,
-  isLoading
-} from '../utils/dom/index.js'
+    getContainer,
+    getPopup,
+    getTitle,
+    getContent,
+    getHtmlContainer,
+    getImage,
+    getIcon,
+    getInputLabel,
+    getCloseButton,
+    getActions,
+    getConfirmButton,
+    getDenyButton,
+    getCancelButton,
+    getLoader,
+    getHeader,
+    getFooter,
+    getTimerProgressBar,
+    getFocusableElements,
+    getValidationMessage,
+    isLoading
+}
+from '../utils/dom/index.js'
 
 /*
  * Global function to determine if SweetAlert2 popup is shown
  */
 export const isVisible = () => {
-  return domUtils.isVisible(dom.getPopup())
+    return domUtils.isVisible(dom.getPopup())
 }
 
 /*

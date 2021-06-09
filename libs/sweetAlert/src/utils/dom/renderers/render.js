@@ -7,17 +7,17 @@ import { renderHeader } from './renderHeader.js'
 import { renderPopup } from './renderPopup.js'
 
 export const render = (instance, params) => {
-  renderPopup(instance, params)
-  renderContainer(instance, params)
+    renderPopup(instance, params)
+    renderContainer(instance, params)
 
-  renderHeader(instance, params)
-  renderContent(instance, params)
-  renderActions(instance, params)
-  renderFooter(instance, params)
+    renderHeader(instance, params)
+    renderContent(instance, params)
+    renderActions(instance, params)
+    renderFooter(instance, params)
 
-  if (typeof params.didRender === 'function') {
-    params.didRender(getPopup())
-  } else if (typeof params.onRender === 'function') {
-    params.onRender(getPopup()) // @deprecated
-  }
+    if (typeof params.didRender === 'function') {
+        params.didRender(getPopup())
+    } else if (typeof params.onRender === 'function') {
+        params.onRender(getPopup()) // @deprecated
+    }
 }
