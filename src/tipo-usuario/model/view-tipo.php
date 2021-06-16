@@ -14,14 +14,14 @@
 
     // Testar a minha consulta de banco de dados
     if($resultado){
-        $dadosEixo = array();
+        $dadosTipo = array();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $dadosEixo = array_map(null, $row);
+            $dadosTipo = array_map(null, $row);
         }
         $dados = array(
             'tipo' => 'success',
             'mensagem' => '',
-            'dados' => $dadosEixo
+            'dados' => $dadosTipo
         );
     } else {
         $dados = array(
