@@ -8,12 +8,12 @@ body {
     color: #000000;
 }
 
-header {
+#header {
     display: flex;
     justify-content: flex-end;
 }
 
-label {
+#traco {
     padding: 0.4rem;
     cursor: pointer;
     z-index: 4;
@@ -21,7 +21,7 @@ label {
     margin-right: 0.5rem;
 }
 
-label span {
+.tracinho {
     display: block;
     width: 2rem;
     height: 0.25rem;
@@ -31,7 +31,7 @@ label span {
     transition: transform 0.4s linear;
 }
 
-nav {
+#menu {
     width: 20rem;
     height: 100vh;
     position: fixed;
@@ -43,7 +43,7 @@ nav {
     transition: transform 0.4s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
 
-ul {
+#lista {
     padding: 0;
     margin: 0;
     display: flex;
@@ -54,13 +54,13 @@ ul {
     height: 100%;
 }
 
-li {
+.item {
     font-size: 1.4rem;
     font-weight: bold;
     margin: 0.5rem 0;
 }
 
-a {
+.linkando {
     display: block;
     color: inherit;
     padding: 0.2rem;
@@ -68,7 +68,7 @@ a {
     text-transform: uppercase;
 }
 
-ul li a:hover {
+.linkando:hover {
     color: #df7b1d
 }
 
