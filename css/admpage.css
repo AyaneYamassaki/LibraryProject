@@ -8,12 +8,12 @@ body {
     color: #000000;
 }
 
-#header {
+header {
     display: flex;
     justify-content: flex-end;
 }
 
-#traco {
+label {
     padding: 0.4rem;
     cursor: pointer;
     z-index: 4;
@@ -21,7 +21,7 @@ body {
     margin-right: 0.5rem;
 }
 
-.tracinho {
+label span {
     display: block;
     width: 2rem;
     height: 0.25rem;
@@ -31,7 +31,7 @@ body {
     transition: transform 0.4s linear;
 }
 
-#menu {
+nav {
     width: 20rem;
     height: 100vh;
     position: fixed;
@@ -43,7 +43,7 @@ body {
     transition: transform 0.4s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
 
-#lista {
+ul {
     padding: 0;
     margin: 0;
     display: flex;
@@ -54,13 +54,13 @@ body {
     height: 100%;
 }
 
-.item {
+li {
     font-size: 1.4rem;
     font-weight: bold;
     margin: 0.5rem 0;
 }
 
-.linkando {
+a {
     display: block;
     color: inherit;
     padding: 0.2rem;
@@ -68,7 +68,7 @@ body {
     text-transform: uppercase;
 }
 
-.linkando:hover {
+ul li a:hover {
     color: #df7b1d
 }
 

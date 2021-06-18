@@ -4,7 +4,7 @@ $(document).ready(function() {
 
         e.preventDefault()
 
-        let IDEIXO = `IDTIPO_USUARIO=${$(this).attr('id')}`
+        let IDTIPO_USUARIO = `IDTIPO_USUARIO=${$(this).attr('id')}`
 
         Swal.fire({
             title: 'Library',
@@ -20,7 +20,7 @@ $(document).ready(function() {
                     type: 'POST',
                     dataType: 'json',
                     assync: true,
-                    data: IDEIXO,
+                    data: IDTIPO_USUARIO,
                     url: 'src/tipo-usuario/model/delete-tipo.php',
                     success: function(dados) {
                         Swal.fire({
