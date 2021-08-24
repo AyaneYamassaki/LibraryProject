@@ -65,5 +65,5 @@
         }
     }
 
-    // Converter um array ded dados para a representação JSON
+    // Converter um array de dados para a representação JSON
     echo json_encode($dados);
