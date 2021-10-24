@@ -2,22 +2,17 @@ function listAuthor() {
 
     $('.alert').click(function(e) {
         e.preventDefault()
+
         let id = $(this).attr('id')
         let nome = $(this).attr('name')
 
         $('#listar').append(`
-            <div class="alert alert-primary">${nome}</div>
-            <input type="hidden" name="USUARIO_IDUSUARIO" value="${id}">
-        `)
+        <div class="alert alert-primary">${nome}</div>
+        <input type="hidden" name="USUARIO_IDUSUARIO" value="${id}">
+    `)
         $('#' + id).hide()
     })
 
-}
-
-function someAuthor() {
-    if ($(id.clicked)) {
-
-    }
 }
 
 $(document).ready(function() {
@@ -50,6 +45,5 @@ $(document).ready(function() {
         } else {
             $('#autores').empty()
         }
-
     })
 })

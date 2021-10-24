@@ -1,12 +1,8 @@
 $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
-
         url = "src/trabalho/model/save-trabalho.php"
-
         var formData = new FormData(document.getElementById("form-trabalho"))
-            // var formData = new FormData($('#form-trabalho')) ← é a mesma coisa da linha 7
-
         $.ajax({
             url: url,
             type: "POST",

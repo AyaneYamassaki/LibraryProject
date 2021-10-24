@@ -59,7 +59,7 @@
                     $ID = isset($requestData['IDTRABALHO']) ? $requestData['IDTRABALHO'] : '';
                     $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
-                    // Verifica se é para cadastra um nvo registro
+                    // Verifica se é para cadastra um novo registro
                     if($operacao == 'insert'){
                         // Prepara o comando INSERT para ser executado
                         try{
@@ -73,6 +73,19 @@
                                 ':f' => utf8_decode($requestData['COORIENTADOR']),
                                 ':g' => $novoNome
                             ));
+                            $sql = $pdo->query("SELECT * FROM TRABALHO ORDER BY IDTRABALHO DESC LIMIT 1");
+                            while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
+                                $IDTRABALHO = $resultado['IDTRABALHO'];
+                            }
+                            $indice = count(array_filter($requestData['AUTOR']));
+                            for($i=0; $i<$indice ;$i++){
+                                $stmt = $pdo -> prepare('INSERT INTO AUTOR (TRABALHO_IDTRABALHO, USUARIO_IDUSUARIO) VALUES (:h, :i)');
+                                $stmt -> execute(array(
+                                    ':h' => $IDTRABALHO,
+                                    ':i' => $requestData['USUARIO_IDUSUARIO'][$i]
+                                ));
+                            }
+                            
                             $retorno = array(
                                 "tipo" => 'success',
                                 "mensagem" => 'Trabalho cadastrado com sucesso.'
