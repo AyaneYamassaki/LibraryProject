@@ -77,7 +77,7 @@
                             while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
                                 $IDTRABALHO = $resultado['IDTRABALHO'];
                             }
-                            $indice = count(array_filter($requestData['AUTOR']));
+                            $indice = count(array_filter($requestData['USUARIO_IDUSUARIO']));
                             for($i=0; $i<$indice ;$i++){
                                 $stmt = $pdo -> prepare('INSERT INTO AUTOR (TRABALHO_IDTRABALHO, USUARIO_IDUSUARIO) VALUES (:h, :i)');
                                 $stmt -> execute(array(
@@ -117,7 +117,7 @@
                         } catch (PDOException $e) {
                             $retorno = array(
                                 "tipo" => 'error',
-                                "mensagem" => 'Não foi possível efetuar o alteração do trabalho.'
+                                "mensagem" => 'Não foi possível efetuar a alteração do trabalho.'
                             );
                         }
                     }
