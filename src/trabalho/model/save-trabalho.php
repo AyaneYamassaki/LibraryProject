@@ -50,7 +50,7 @@
                 // Verificação de campo obrigatórios do formulário
                 if(empty($requestData['TITULO'])){
                     // Caso a variável venha vazia eu gero um retorno de erro do mesmo
-                    $dados = array(
+                    $retorno = array(
                         "tipo" => 'error',
                         "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
                     );

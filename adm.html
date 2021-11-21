@@ -40,8 +40,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="src/trabalho/view/list-trabalho.html"><i class="far fa-file-word"></i> Trabalhos</a>
                 </li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">About</a></li>
+                <li class="nav-item">
+                    <button class="btn btn-warning ml-3 logout">
+                        <i class="fas fa-sign-out-alt"></i> Sair do Sistema
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -83,6 +86,8 @@
     <script src="libs/sweetAlert/dist/sweetalert2.js"></script>
     <script src="js/load-link.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
+    <script src="src/usuario/controller/validate-usuario.js"></script>
+    <script src="src/usuario/controller/logout-usuario.js"></script>
 </body>
 
 </html>
